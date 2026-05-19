@@ -350,7 +350,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
       {/* Split layout */}
       <div className="flex flex-col md:flex-row min-h-screen pt-12">
         {/* Left — sticky gallery */}
-        <div className="md:w-1/2 md:sticky md:top-0 md:h-screen">
+        <div className="md:w-1/2 md:sticky md:top-0 h-[60vh] md:h-screen">
           <Gallery product={product} />
         </div>
 

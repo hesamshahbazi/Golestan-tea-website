@@ -118,7 +118,9 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <motion.div
-        className="absolute top-full left-0 right-0 flex flex-col items-center gap-8 py-10 md:hidden"
+        className={`absolute top-full left-0 right-0 flex flex-col items-center gap-8 py-10 md:hidden ${
+          menuOpen ? "" : "pointer-events-none"
+        }`}
         style={{ background: "rgba(0,0,0,0.95)", backdropFilter: "blur(20px)" }}
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: menuOpen ? 1 : 0, y: menuOpen ? 0 : -10 }}

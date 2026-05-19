@@ -144,16 +144,18 @@ export default function HeroSection() {
       className="relative"
       style={{ height: "600vh" }}
     >
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div
+        className="sticky top-0 h-screen overflow-hidden bg-pure-black"
+        style={{ height: "100svh" }}
+      >
         {/* Video */}
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/hero-poster.jpg"
           muted
           playsInline
           preload="auto"
-          style={{ willChange: "transform" }}
+          style={{ willChange: "transform", objectPosition: "center" }}
         >
           <source src="/hero-scrub.mp4" type="video/mp4" />
         </video>

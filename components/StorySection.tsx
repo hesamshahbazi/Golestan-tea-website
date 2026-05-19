@@ -64,7 +64,7 @@ export default function StorySection() {
   const s = t.story;
 
   return (
-    <section id="story-content" className="relative bg-pure-black">
+    <section id="story" className="relative bg-pure-black">
       {/* Header */}
       <div
         ref={headerRef}

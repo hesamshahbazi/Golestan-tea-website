@@ -27,7 +27,7 @@ export default function Footer() {
   const f = t.footer;
 
   return (
-    <footer id="heritage" className="relative bg-pure-black pt-20 pb-10 px-6 md:px-12 lg:px-20 overflow-hidden">
+    <footer id="contact" className="relative bg-pure-black pt-20 pb-10 px-6 md:px-12 lg:px-20 overflow-hidden">
       {/* Gold divider top */}
       <div className="gold-divider mb-16" />
 
@@ -65,7 +65,7 @@ export default function Footer() {
         </div>
 
         {/* Social + tagline */}
-        <div id="story" className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6">
           <div>
             <p className="smallcaps text-gold text-[9px] font-inter tracking-smallcaps mb-4 opacity-50">
               {f.followUs}

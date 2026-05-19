@@ -5,7 +5,8 @@
       "Read(//tmp/**)",
       "Bash(curl -s \"http://localhost:3001/_next/static/css/app/layout.css?v=1779111271160\")",
       "Bash(curl -s \"http://localhost:3000\")",
-      "Bash(curl -s \"http://localhost:3000/_next/static/css/app/layout.css\")"
+      "Bash(curl -s \"http://localhost:3000/_next/static/css/app/layout.css\")",
+      "Bash(npx next *)"
     ]
   }
 }

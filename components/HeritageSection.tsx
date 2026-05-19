@@ -116,7 +116,7 @@ export default function HeritageSection() {
   const h = t.heritage;
 
   return (
-    <section id="heritage-content" className="relative bg-pure-black overflow-hidden">
+    <section id="heritage" className="relative bg-pure-black overflow-hidden">
       {/* Section header */}
       <div
         ref={headerRef}

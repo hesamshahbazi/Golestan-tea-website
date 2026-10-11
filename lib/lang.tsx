@@ -365,7 +365,8 @@ const translations = {
   },
 } as const;
 
-export type Translations = (typeof translations)["EN"];
+type Widen<T> = T extends string ? string : T extends readonly (infer U)[] ? readonly Widen<U>[] : T extends object ? { [K in keyof T]: Widen<T[K]> } : T;
+export type Translations = Widen<(typeof translations)["EN"]>;
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Context
@@ -387,17 +388,21 @@ export function LangProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("EN");
 
   useEffect(() => {
-    const saved = localStorage.getItem("golestan-lang") as Lang | null;
-    if (saved === "EN" || saved === "DE") setLangState(saved);
+    try {
+      const saved = localStorage.getItem("golestan-lang");
+      if (saved === "EN" || saved === "DE") setLangState(saved);
+    } catch { /* Storage may be blocked; keep the default language. */ }
   }, []);
+
+  useEffect(() => { document.documentElement.lang = lang.toLowerCase(); }, [lang]);
 
   const setLang = (l: Lang) => {
     setLangState(l);
-    localStorage.setItem("golestan-lang", l);
+    try { localStorage.setItem("golestan-lang", l); } catch { /* Keep in-memory selection. */ }
   };
 
   return (
-    <LangContext.Provider value={{ lang, setLang, t: translations[lang] as Translations }}>
+    <LangContext.Provider value={{ lang, setLang, t: translations[lang] }}>
       {children}
     </LangContext.Provider>
   );

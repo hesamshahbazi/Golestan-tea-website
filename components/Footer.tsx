@@ -56,7 +56,7 @@ export default function Footer() {
           {f.links.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={`/${link.href}`}
               className="smallcaps text-off-white/40 text-[10px] font-inter tracking-smallcaps hover:text-gold transition-colors duration-300"
             >
               {link.label}

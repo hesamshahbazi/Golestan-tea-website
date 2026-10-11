@@ -101,6 +101,8 @@ export default function Navbar() {
         className="md:hidden flex flex-col gap-1.5 z-10"
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle menu"
+        aria-expanded={menuOpen}
+        aria-controls="mobile-navigation"
       >
         <span
           className="block w-6 h-px bg-off-white/70 transition-all duration-300"
@@ -125,6 +127,7 @@ export default function Navbar() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: menuOpen ? 1 : 0, y: menuOpen ? 0 : -10 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
+        id="mobile-navigation"
         aria-hidden={!menuOpen}
       >
         {navLinks.map(({ label, target }) => (
@@ -132,6 +135,7 @@ export default function Navbar() {
             key={target}
             href={`#${target}`}
             onClick={handleLink(target)}
+            tabIndex={menuOpen ? 0 : -1}
             className="text-off-white/70 font-inter font-light text-sm smallcaps tracking-smallcaps hover:text-gold transition-colors duration-300"
           >
             {label}
@@ -144,6 +148,7 @@ export default function Navbar() {
             <button
               key={l}
               onClick={() => setLang(l)}
+              tabIndex={menuOpen ? 0 : -1}
               className={`smallcaps font-inter text-xs tracking-smallcaps transition-colors duration-300 ${
                 lang === l
                   ? "text-gold"
